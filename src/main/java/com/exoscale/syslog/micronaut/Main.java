@@ -1,5 +1,6 @@
 package com.exoscale.syslog.micronaut;
 
+import io.micronaut.context.ApplicationContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -8,8 +9,8 @@ public class Main {
     private static final Logger LOGGER = LoggerFactory.getLogger(Main.class);
 
     public static void main(String[] args) {
-        Foo foo = new Foo();
-        Bar bar = new Bar(foo);
+        ApplicationContext context = ApplicationContext.run();
+        Bar bar = context.getBean(Bar.class);
         LOGGER.info(bar.bar());
     }
 }
