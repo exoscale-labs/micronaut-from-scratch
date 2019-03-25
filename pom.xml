@@ -42,6 +42,25 @@
                 </configuration>
             </plugin>
             <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>1.6.0</version>
+                <configuration>
+                    <mainClass>io.micronaut.graal.reflect.GraalClassLoadingAnalyzer</mainClass>
+                    <arguments>
+                        <argument>target/reflect.json</argument>
+                    </arguments>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>java</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
                 <groupId>com.oracle.substratevm</groupId>
                 <artifactId>native-image-maven-plugin</artifactId>
                 <version>1.0.0-rc13</version>
@@ -54,7 +73,7 @@
                         <configuration>
                             <mainClass>${exec.mainClass}</mainClass>
                             <buildArgs>
-                                --no-server --allow-incomplete-classpath -H:IncludeResources='logback.xml' -H:+ReportUnsupportedElementsAtRuntime -H:-UseServiceLoaderFeature
+                                --no-server --allow-incomplete-classpath -H:ReflectionConfigurationFiles=reflect.json -H:IncludeResources='logback.xml' -H:+ReportUnsupportedElementsAtRuntime -H:-UseServiceLoaderFeature
                             </buildArgs>
                         </configuration>
                     </execution>
@@ -66,6 +85,11 @@
         <dependency>
             <groupId>io.micronaut</groupId>
             <artifactId>micronaut-inject</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.micronaut</groupId>
+            <artifactId>micronaut-graal</artifactId>
+            <scope>runtime</scope>
         </dependency>
         <dependency>
             <groupId>com.oracle.substratevm</groupId>
