@@ -9,7 +9,10 @@ public class Main {
     private static final Logger LOGGER = LoggerFactory.getLogger(Main.class);
 
     public static void main(String[] args) {
-        ApplicationContext context = ApplicationContext.run();
+        ApplicationContext context = ApplicationContext
+                .build()
+                .deduceEnvironment(false)
+                .start();
         Bar bar = context.getBean(Bar.class);
         LOGGER.info(bar.bar());
     }
