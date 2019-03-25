@@ -42,22 +42,20 @@
                 </configuration>
             </plugin>
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-shade-plugin</artifactId>
-                <version>3.1.0</version>
+                <groupId>com.oracle.substratevm</groupId>
+                <artifactId>native-image-maven-plugin</artifactId>
+                <version>1.0.0-rc13</version>
                 <executions>
                     <execution>
                         <phase>package</phase>
                         <goals>
-                            <goal>shade</goal>
+                            <goal>native-image</goal>
                         </goals>
                         <configuration>
-                            <transformers>
-                                <transformer
-                                        implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                                    <mainClass>${exec.mainClass}</mainClass>
-                                </transformer>
-                            </transformers>
+                            <mainClass>${exec.mainClass}</mainClass>
+                            <buildArgs>
+                                --no-server --allow-incomplete-classpath -H:IncludeResources='logback.xml' -H:+ReportUnsupportedElementsAtRuntime -H:-UseServiceLoaderFeature
+                            </buildArgs>
                         </configuration>
                     </execution>
                 </executions>
