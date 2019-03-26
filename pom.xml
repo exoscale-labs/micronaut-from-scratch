@@ -44,6 +44,11 @@
                             <artifactId>micronaut-inject-java</artifactId>
                             <version>${micronaut.version}</version>
                         </path>
+                        <path>
+                            <groupId>io.micronaut.spring</groupId>
+                            <artifactId>micronaut-spring-annotation</artifactId>
+                            <version>1.0.0.RC1</version>
+                        </path>
                     </annotationProcessorPaths>
                 </configuration>
             </plugin>
@@ -70,6 +75,10 @@
         <dependency>
             <groupId>io.micronaut</groupId>
             <artifactId>micronaut-inject</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.micronaut</groupId>
+            <artifactId>micronaut-spring</artifactId>
         </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>

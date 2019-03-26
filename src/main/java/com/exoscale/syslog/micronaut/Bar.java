@@ -1,8 +1,8 @@
 package com.exoscale.syslog.micronaut;
 
-import javax.inject.Singleton;
+import org.springframework.stereotype.Component;
 
-@Singleton
+@Component
 public class Bar {
 
     private final Foo foo;
