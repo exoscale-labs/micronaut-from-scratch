@@ -13,7 +13,7 @@ public class BarController {
     }
 
     @GetMapping("/")
-    public String root() {
-        return bar.bar();
+    public Bar root() {
+        return bar;
     }
 }
