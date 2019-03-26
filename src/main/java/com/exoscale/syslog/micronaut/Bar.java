@@ -1,8 +1,5 @@
 package com.exoscale.syslog.micronaut;
 
-import org.springframework.stereotype.Component;
-
-@Component
 public class Bar {
 
     private final Foo foo;
