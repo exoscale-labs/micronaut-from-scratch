@@ -1,0 +1,3 @@
+app:
+  bar: "Bar"
+  foo: "Foo"

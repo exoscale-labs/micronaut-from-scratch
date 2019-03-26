@@ -7,12 +7,12 @@ import org.springframework.context.annotation.Configuration;
 public class AppConfig {
 
     @Bean
-    public Foo foo() {
-        return new Foo();
+    public Foo foo(MicronautConfigProperties props) {
+        return new Foo(props);
     }
 
     @Bean
-    public Bar bar(Foo foo) {
-        return new Bar(foo);
+    public Bar bar(MicronautConfigProperties props, Foo foo) {
+        return new Bar(foo, props);
     }
 }
