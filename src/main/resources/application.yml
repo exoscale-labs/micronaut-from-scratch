@@ -1,3 +1,6 @@
+jackson:
+  serialization:
+    indentOutput: true
 app:
   bar: "Bar"
   foo: "Foo"
