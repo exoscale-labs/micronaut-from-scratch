@@ -13,7 +13,7 @@
         <exec.mainClass>com.exoscale.syslog.micronaut.Main</exec.mainClass>
         <graalvm.version>19.0.0</graalvm.version>
         <micronaut.version>1.1.2</micronaut.version>
-        <micronaut.spring.version>1.0.1</micronaut.spring.version>
+        <micronaut-spring.version>1.0.1</micronaut-spring.version>
         <spring-boot.version>2.1.5.RELEASE</spring-boot.version>
     </properties>
     <dependencyManagement>
@@ -55,12 +55,12 @@
                         <path>
                             <groupId>io.micronaut.spring</groupId>
                             <artifactId>micronaut-spring-boot-annotation</artifactId>
-                            <version>${micronaut.spring.version}</version>
+                            <version>${micronaut-spring.version}</version>
                         </path>
                         <path>
                             <groupId>io.micronaut.spring</groupId>
                             <artifactId>micronaut-spring-web-annotation</artifactId>
-                            <version>${micronaut.spring.version}</version>
+                            <version>${micronaut-spring.version}</version>
                         </path>
                     </annotationProcessorPaths>
                 </configuration>
@@ -101,7 +101,7 @@
         <dependency>
             <groupId>io.micronaut.spring</groupId>
             <artifactId>micronaut-spring-web</artifactId>
-            <version>${micronaut.spring.version}</version>
+            <version>${micronaut-spring.version}</version>
             <scope>runtime</scope>
         </dependency>
         <dependency>
